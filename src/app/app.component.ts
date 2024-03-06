@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cmp-databinding';
+  serverElements: { type: string, name: string, content: string }[] = [];
+  itemCreated(data: { type: string, name: string, content: string }) {
+    this.serverElements.push(data)
+  }
 }
