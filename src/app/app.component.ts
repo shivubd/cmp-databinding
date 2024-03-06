@@ -12,4 +12,11 @@ export class AppComponent {
   itemCreated(data: { type: string, name: string, content: string }) {
     this.serverElements.push(data)
   }
+  changeFirstOne() {
+    //This changes the first element name to demonstrate ngOnChange() call
+    this.serverElements[0].name = "Changed!!"
+  }
+  removeLast() {
+    this.serverElements.pop()
+  }
 }

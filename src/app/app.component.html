@@ -1,14 +1,17 @@
 <div class="container">
   <!--ng-content the content between <app-cockpit></app-cockpit> is ignored by default, but can be rendered using <ng-content></> in app-cockpit template-->
-  <app-cockpit (create)="itemCreated($event)">Add new servers or Blueprints!!</app-cockpit>
+  <app-cockpit (create)="itemCreated($event)"><p #heading>Add new servers or Blueprints!!</p></app-cockpit>
   <!--CUSTOM EVENT BINDING [CHILD->PARENT]
     Here we can pass a value from child comp to parent comp using @Output() decorator on a EventEmitter object
     we should specify what type of data is emitted EventEmitter<type_of_data_emitted>
     Here we have bound (create) event with itemCreated($event) method where $event contains the emitted data from create-->
   <hr>
+  <button class="btn btn-primary" (click)="changeFirstOne()">ngOnChange example</button>
+  <i>This changes the first element name</i>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"></app-server-element>
+      <button class="btn btn-primary" (click)="removeLast()">Delete first</button>
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement" [name]="serverElement.name"></app-server-element><!--[name] is used to change first element name for ngOnChange demo-->
       <!--CUSTOM PROPERTY BINDING: we are binding serverElement value to [element] property of <app-server-element>
           in which element is defined as input property using @Input() decorator, by which element can be used for property binding-->
     </div>
