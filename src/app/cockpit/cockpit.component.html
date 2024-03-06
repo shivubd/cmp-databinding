@@ -8,5 +8,13 @@
         <br>
         <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
         <button class="btn btn-primary" (click)="onAddBlueprint()">Add Server Blueprint</button>
+        <hr>
+        <input type="text" class="form-control" placeholder="Local server" #serverName>
+        <br>
+        <button class="btn btn-primary" (click)="onAddLocalServer(serverName)">Add Local Server</button>
+        <!--LOCAL REFERENCE - Here a reference to element is passed to the method
+            and input parameter of that method should of element type eg HTMLInputElement for inputs
+            and then the various attribute values can be fetched from that reference
+        Check ts file for much info-->>
     </div>
 </div>

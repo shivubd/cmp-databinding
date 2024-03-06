@@ -20,4 +20,9 @@ export class CockpitComponent {
   onAddBlueprint() {
     this.onCreate.emit({ type: 'blueprint', name: this.newServerName, content: this.newServerContent });
   }
+
+  onAddLocalServer(servername: HTMLInputElement) {
+    //Here servername is a reference to the input tag, and we can fetch the input value, type, checked etc. as shown below
+    this.onCreate.emit({ type: 'server', name: servername.value, content: servername.type });
+  }
 }
