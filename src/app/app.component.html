@@ -1,5 +1,6 @@
 <div class="container">
-  <app-cockpit (create)="itemCreated($event)"></app-cockpit>
+  <!--ng-content the content between <app-cockpit></app-cockpit> is ignored by default, but can be rendered using <ng-content></> in app-cockpit template-->
+  <app-cockpit (create)="itemCreated($event)">Add new servers or Blueprints!!</app-cockpit>
   <!--CUSTOM EVENT BINDING [CHILD->PARENT]
     Here we can pass a value from child comp to parent comp using @Output() decorator on a EventEmitter object
     we should specify what type of data is emitted EventEmitter<type_of_data_emitted>
