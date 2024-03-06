@@ -10,11 +10,14 @@
         <button class="btn btn-primary" (click)="onAddBlueprint()">Add Server Blueprint</button>
         <hr>
         <input type="text" class="form-control" placeholder="Local server" #serverName>
+        <input type="text" class="form-control" placeholder="Local server content" #serverContent>
         <br>
         <button class="btn btn-primary" (click)="onAddLocalServer(serverName)">Add Local Server</button>
         <!--LOCAL REFERENCE - Here a reference to element is passed to the method
             and input parameter of that method should of element type eg HTMLInputElement for inputs
             and then the various attribute values can be fetched from that reference
-        Check ts file for much info-->>
+        Check ts file for much info-->
+        <!--@ViewChild() #serverContent in 2nd input is not passed using event binding but can be accessed in typescript
+            by using @ViewChild('serverContent') decorator and passing reference-->
     </div>
 </div>

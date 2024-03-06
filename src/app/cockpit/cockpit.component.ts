@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -9,6 +9,10 @@ export class CockpitComponent {
   
   @Output('create') onCreate = new EventEmitter<{type: string, name: string, content: string}>();
   //onCreate is a custom event, which is emits the data of type given to EventEmitter<type_of_data_emitted>
+
+  @ViewChild('serverContent') localContent: ElementRef | undefined;
+  //Here 'serverContent' = #serverContent and this is bound to localContent of type ElementRef
+
   newServerName: string = '';
   newServerContent: string = '';
   
@@ -23,6 +27,7 @@ export class CockpitComponent {
 
   onAddLocalServer(servername: HTMLInputElement) {
     //Here servername is a reference to the input tag, and we can fetch the input value, type, checked etc. as shown below
-    this.onCreate.emit({ type: 'server', name: servername.value, content: servername.type });
+    //Here localContent is of type ElementRef and is referencing input element with #serverContent reference, its value, type, checked can also be accessed using .nativeElement
+    this.onCreate.emit({ type: 'server', name: servername.value, content: this.localContent?.nativeElement.value });
   }
 }
